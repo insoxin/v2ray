@@ -936,7 +936,7 @@ tls_config() {
 		echo
 		echo
 		echo -e "请输入一个 ${magenta}正确的域名${none}，一定一定一定要正确，不！能！出！错！"
-		read -p "(例如：233blog.com): " new_domain
+		read -p "(例如：om): " new_domain
 		[ -z "$new_domain" ] && error && continue
 		echo
 		echo
@@ -944,16 +944,6 @@ tls_config() {
 		echo "----------------------------------------------------------------"
 		break
 	done
-	get_ip
-	echo
-	echo
-	echo -e "$yellow 请将 $magenta$new_domain$none $yellow 解析到: $cyan$ip$none"
-	echo
-	echo -e "$yellow 请将 $magenta$new_domain$none $yellow 解析到: $cyan$ip$none"
-	echo
-	echo -e "$yellow 请将 $magenta$new_domain$none $yellow 解析到: $cyan$ip$none"
-	echo "----------------------------------------------------------------"
-	echo
 
 	while :; do
 
@@ -962,7 +952,7 @@ tls_config() {
 			error
 		else
 			if [[ "$record" == [Yy] ]]; then
-				domain_check
+				
 				echo
 				echo
 				echo -e "$yellow 域名解析 = ${cyan}我确定已经有解析了$none"
@@ -1733,7 +1723,7 @@ domain_check() {
 	# test_domain=$(ping $new_domain -c 1 -4 | grep -oE -m1 "([0-9]{1,3}\.){3}[0-9]{1,3}")
 	# test_domain=$(wget -qO- --header='accept: application/dns-json' "https://cloudflare-dns.com/dns-query?name=$new_domain&type=A" | grep -oE "([0-9]{1,3}\.){3}[0-9]{1,3}" | head -1)
 	test_domain=$(curl -sH 'accept: application/dns-json' "https://cloudflare-dns.com/dns-query?name=$new_domain&type=A" | grep -oE "([0-9]{1,3}\.){3}[0-9]{1,3}" | head -1)
-	if [[ $test_domain != $ip ]]; then
+	if [[ $test_domain != $test_domain ]]; then
 		echo
 		echo -e "$red 检测域名解析错误....$none"
 		echo
