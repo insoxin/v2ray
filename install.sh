@@ -333,7 +333,7 @@ tls_config() {
 	while :; do
 		echo
 		echo -e "请输入一个 ${magenta}正确的域名${none}，一定一定一定要正确，不！能！出！错！"
-		read -p "(例如：233blog.com): " domain
+		read -p "(1111): " domain
 		[ -z "$domain" ] && error && continue
 		echo
 		echo
@@ -341,17 +341,7 @@ tls_config() {
 		echo "----------------------------------------------------------------"
 		break
 	done
-	get_ip
-	echo
-	echo
-	echo -e "$yellow 请将 $magenta$domain$none $yellow 解析到: $cyan$ip$none"
-	echo
-	echo -e "$yellow 请将 $magenta$domain$none $yellow 解析到: $cyan$ip$none"
-	echo
-	echo -e "$yellow 请将 $magenta$domain$none $yellow 解析到: $cyan$ip$none"
-	echo "----------------------------------------------------------------"
-	echo
-
+	
 	while :; do
 
 		read -p "$(echo -e "(是否已经正确解析: [${magenta}Y$none]):") " record
@@ -359,7 +349,7 @@ tls_config() {
 			error
 		else
 			if [[ "$record" == [Yy] ]]; then
-				domain_check
+				
 				echo
 				echo
 				echo -e "$yellow 域名解析 = ${cyan}我确定已经有解析了$none"
@@ -757,7 +747,7 @@ domain_check() {
 		echo
 		echo -e " 你的域名当前解析到: $cyan$test_domain$none"
 		echo
-		echo "备注...如果你的域名是使用 Cloudflare 解析的话..在 Status 那里点一下那图标..让它变灰"
+		echo "备注...如果你的域名是使用 Cloudflare 解析的话..在灰"
 		echo
 		exit 1
 	fi
